@@ -2,6 +2,7 @@ const mongodb = require('mongodb');
 
 const db = require('../data/database');
 
+
 class Product {
   constructor(productData) {
     this.title = productData.title;
@@ -9,6 +10,8 @@ class Product {
     this.price = +productData.price;
     this.description = productData.description;
     this.image = productData.image; // the name of the image file
+    this.imageUrl = productData.imageUrl;
+    this.imagePath = productData.imagePath;
     this.updateImageData();
     if (productData._id) {
       this.id = productData._id.toString();
@@ -62,7 +65,7 @@ class Product {
   }
 
   updateImageData() {
-    this.imagePath = `product-data/images/${this.image}`;
+    this.imagePath = `/product/assets/images/${this.image}`;
     this.imageUrl = `/products/assets/images/${this.image}`;
   }
 
