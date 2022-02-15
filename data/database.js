@@ -10,7 +10,7 @@ const MongoClient = mongodb.MongoClient;
 
 let database;
 
-async function connectToDatabase() {
+async function initDatabase() {
   const client = await MongoClient.connect(process.env.MONGODB_URL);
   database = client.db('myFirstDatabase');
 }
@@ -24,6 +24,6 @@ function getDb() {
 }
 
 module.exports = {
-  connectToDatabase: connectToDatabase,
+  initDatabase: initDatabase,
   getDb: getDb
 };

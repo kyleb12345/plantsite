@@ -59,7 +59,7 @@ app.use(notFoundMiddleware);
 
 app.use(errorHandlerMiddleware);
 
-db.connectToDatabase()
+db.initDatabase()
   .then(function () {
     app.listen(port);
   })
