@@ -21,11 +21,8 @@ const adminRoutes = require('./routes/admin.routes');
 const cartRoutes = require('./routes/cart.routes');
 const ordersRoutes = require('./routes/orders.routes');
 
-let port = 3000;
+const port = process.env.PORT || 3000;
 
-if (process.env.PORT) {
-  port = process.env.PORT;
-}
 
 const app = express();
 
@@ -60,10 +57,7 @@ app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
 db.initDatabase()
-  .then(function () {
-    app.listen(port);
-  })
-  .catch(function (error) {
-    console.log('Failed to connect to the database!');
-    console.log(error);
-  });
+
+app.listen(port, ()=> {
+  console.log(`working on ${port}`)
+});
