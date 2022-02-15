@@ -20,10 +20,11 @@ function createSessionStore() {
   return store;
 }
 
+const secret = process.env.SECRET || 'super-secret';
 
 function createSessionConfig() {
   return {
-    secret: 'super-secret',
+    secret,
     resave: false,
     saveUninitialized: false,
     store: createSessionStore(),
