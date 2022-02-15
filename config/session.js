@@ -12,9 +12,8 @@ function createSessionStore() {
 
 
   const store = new MongoDBStore({
-    url: dbUrl,
-    collection: 'sessions',
-    touchAfter: 24 * 60 * 60
+    uri: dbUrl,
+    collection: 'sessions'
   });
 
   return store;
@@ -29,7 +28,6 @@ function createSessionConfig() {
     saveUninitialized: false,
     store: createSessionStore(),
     cookie: {
-      expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
       maxAge: 2 * 24 * 60 * 60 * 1000
     }
   };
