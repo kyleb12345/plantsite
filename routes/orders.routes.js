@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/', ordersController.addOrder); // /orders/ set in app.js
 
-router.get('/', ordersController.getOrders);
+router.get('/products', ordersController.getOrders);
 
 router.get('/success', ordersController.getSuccess);
 
