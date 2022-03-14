@@ -9,7 +9,7 @@ class Product {
     this.summary = productData.summary;
     this.price = +productData.price;
     this.description = productData.description;
-    this.image = productData.image; // the name of the image file
+    this.image = productData.image; // the name of the image file, needs to be cloudinary, not the site host name, not sure issue
     this.imageUrl = productData.imageUrl;
     this.imagePath = productData.imagePath;
     this.updateImageData();
